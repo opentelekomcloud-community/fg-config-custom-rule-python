@@ -9,15 +9,14 @@ resource "opentelekomcloud_identity_role_v3" "fg-role" {
   statement {
     effect = "Allow"
     action = [
-      #"functiongraph:function:invoke",
-      "functiongraph:*:*",
+      "functiongraph:function:invokeAsync",
+      "functiongraph:function:getConfig"
     ]
-    # resource = [
-    #   format("FunctionGraph:*:%s:function:%s/%s",
-    #   var.OTC_SDK_DOMAIN_ID,
-    #   opentelekomcloud_fgs_function_v2.MyFunction.app,
-    #   opentelekomcloud_fgs_function_v2.MyFunction.name)
-    # ]
+    resource = [
+      format("FunctionGraph:*:*:function:%s/%s",
+      opentelekomcloud_fgs_function_v2.MyFunction.app,
+      opentelekomcloud_fgs_function_v2.MyFunction.name)
+    ]
   }
 
 }

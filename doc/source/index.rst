@@ -1,18 +1,27 @@
 FunctionGraph and Config Custom Rules in Python
 ===============================================
 
-This is the **FunctionGraph and Config Custom Rules in Python sample guide**.
+This guide provides examples and instructions for using **FunctionGraph** and **Config Custom Rules** in Python.
+
+For general information about **FunctionGraph** and **Config Service**, refer to the official documentation.
+
+- :docs_otc:`Function Graph - User Guide <function-graph/umn/>`
+- :docs_otc:`Config Service - User Guide <config/umn/>`
+
 
 .. toctree::
     :maxdepth: 10
     :hidden:
+
+    Samples <samples/_index.rst>
+
+
 
 
 Source Code
 -----------
 
 For source code, see :github_repo_master:`fg-config-custom-rule-python<>` on GitHub.
-
 
 
 Documentation from source

@@ -254,6 +254,8 @@ extlinks= {
     "docs_otc": ("https://docs.otc.t-systems.com/%s", "%s"),
     "github_otc": ("https://github.com/opentelekomcloud/%s", "%s"),
     "github_otc_community": ("https://github.com/opentelekomcloud-community/%s", "%s"),
+    "github_fg_python_runtime": ("https://opentelekomcloud-community.github.io/otc-functiongraph-python-runtime/%s", "%s"),
+    
 }
 
 role_name = 'github_repo_master'

@@ -20,7 +20,9 @@ resource "opentelekomcloud_rms_policy_assignment_v1" "my_policy_assignment" {
   period = ""
   
   policy_filter {
+    # Specify the region where your ECS instance is located
     region = "eu-de"
+    # ID of your ECS instance that you want to check for stopped compliance
     resource_id = "cdb29bdd-1235-4e98-90d3-34bb77450393"
     resource_provider = "ecs"
     resource_type = "cloudservers"

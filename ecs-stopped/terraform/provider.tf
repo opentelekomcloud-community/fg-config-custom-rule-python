@@ -25,12 +25,6 @@ variable "OTC_SDK_DOMAIN_NAME" {
   type        = string
 }
 
-# set by environment variable TF_VAR_OTC_SDK_DOMAIN_ID (=account-id)
-variable "OTC_SDK_DOMAIN_ID" {
-  description = "Domain ID"
-  type        = string
-}
-
 # set by environment variable TF_VAR_OTC_SDK_PROJECTID
 variable "OTC_SDK_PROJECTID" {
   description = "Project Id"
