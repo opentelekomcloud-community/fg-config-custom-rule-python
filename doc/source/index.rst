@@ -14,8 +14,7 @@ For general information about **FunctionGraph** and **Config Service**, refer to
     :hidden:
 
     Samples <samples/_index.rst>
-
-
+    FAQ <faq/_index.rst>
 
 
 Source Code

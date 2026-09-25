@@ -106,12 +106,15 @@ def get_cloud_services(provider=None):
     return _get_result.status_code, _filtered_response_data
 
 
-def query_cloud_service_resource(provider, type, resource_id):
+def query_cloud_service_resource(provider, type, resource_id=None):
     _headers = {
         "x-auth-token": token,
         "Content-Type": "application/json;charset=utf8",
     }
-    _url = f"{RMS_ENDPOINT}/v1/resource-manager/domains/{os.environ.get('OTC_SDK_DOMAIN_ID')}/provider/{provider}/type/{type}/resources/{resource_id}"
+    _url = f"{RMS_ENDPOINT}/v1/resource-manager/domains/{os.environ.get('OTC_SDK_DOMAIN_ID')}/provider/{provider}/type/{type}/resources"
+    
+    if resource_id:
+        _url += f"/{resource_id}"
 
     _get_result = requests.get(_url, headers=_headers)
     print(f"Query Cloud Services Result: {_get_result.status_code}")
@@ -129,11 +132,30 @@ if __name__ == "__main__":
         password=os.environ.get("OTC_USER_PASSWORD"),
         domain=os.environ.get("OTC_DOMAIN_NAME"),
     )
+    
+    ###############################################################################################
+    # Get all Cloud Services
+    status, data = get_cloud_services()
+    print(f"Get Cloud Services Status: {status}")
+    print(json.dumps(data, indent=2))
 
+    ###############################################################################################
+    # Get Cloud Services for provider "ecs"
     status, data = get_cloud_services(provider="ecs")
     print(f"Get Cloud Services Status: {status}")
     print(json.dumps(data, indent=2))
 
+    ###############################################################################################
+    # Query Cloud Service Resource by provider "ecs" and type "cloudservers"
+    status, data = query_cloud_service_resource(
+        provider="ecs",
+        type="cloudservers",
+    )
+    print(f"Query Cloud Service Resource Status: {status}")
+    print(json.dumps(data, indent=2))
+    
+    ###############################################################################################
+    # Query Cloud Service Resource by provider "ecs", type "cloudservers", and specific resource_id
     status, data = query_cloud_service_resource(
         provider="ecs",
         type="cloudservers",
