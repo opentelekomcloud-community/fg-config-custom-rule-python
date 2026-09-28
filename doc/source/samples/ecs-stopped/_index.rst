@@ -8,7 +8,6 @@ Sample to check if an ECS instance is stopped
 
 This example demonstrates how to verify whether an Elastic Cloud Server (ECS) instance is in a stopped state using a custom rule.
 
-
 Prerequisites
 -------------
 
@@ -25,6 +24,15 @@ FunctionGraph function
   :language: python
   :caption: ecs-stopped/src/index.py
 
+.. note::
+  The parameter **ECSstatus** is defined in the config deployment file in
+  :ref:`opentelekomcloud_rms_policy_assignment_v1.my_policy_assignment<ecs_policy_assignment>`
+  
+  .. code-block:: hcl
+
+    parameters = {  
+      ECSstatus = "\"SHUTOFF\""
+    }
 
 
 Terraform deployment files
@@ -58,13 +66,30 @@ Config deployment files
 
     .. tab:: Config
 
+      .. _ecs_policy_assignment:
+
       .. literalinclude:: ../../../../ecs-stopped/terraform/rms.tf
         :language: hcl
         :caption: ecs-stopped/terraform/rms.tf
 
       .. note:: 
-        In **policy_filter** you need to adapt the **region** and **resource_id** to match your ECS instance.
-   
+        - In **policy_filter** you need to adapt the **region** and **resource_id** to match your ECS instance.
+
+        - For getting values for **resource_provider** and **resource_type**
+          see :ref:`FAQ: Listing Cloud Services <sample_response_cloudservices>`.
+
+        - The Parameter **ECSstatus** configured in **parameters = {}** is used in the FunctionGraph function for comparison.
+
+            .. code-block:: python
+              :caption: def evaluate_compliance() in index.py
+
+                # ...
+                if resource.get("properties").get("status") == parameter.get("ECSstatus").get("value"):
+                # ...
+
+          For possible values for **ECSstatus**, see the :ref:`FAQ: How to get Resource Details <sample_response_resourcedetails>`.
+          Execute the script for every change in the ECS instance status and check value of **resources.properties.status**. 
+           
     .. tab:: Config Agency
 
       .. literalinclude:: ../../../../ecs-stopped/terraform/rms-agency.tf

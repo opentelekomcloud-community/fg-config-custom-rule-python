@@ -50,6 +50,8 @@ with following Python code:
 
    python3 utils/getcloudservices.py
 
+.. _sample_response_cloudservices:
+
 .. code-block:: json
    :caption: Sample Response:
    :linenos:
