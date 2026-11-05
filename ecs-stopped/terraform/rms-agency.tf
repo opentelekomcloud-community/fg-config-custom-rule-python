@@ -1,7 +1,7 @@
 ##################################################################
 # Custom role to allow RMS to execute FunctionGraph functions
 ##################################################################
-resource "opentelekomcloud_identity_role_v3" "fg-role" {
+resource "opentelekomcloud_identity_role_v3" "fg_role" {
   display_name  = format("%s-%s-config-role", var.prefix, var.function_name)
   description   = "Role for RMS to execute FunctionGraph functions"
   display_layer = "project"
@@ -35,7 +35,7 @@ resource "opentelekomcloud_identity_agency_v3" "config_agency" {
     # project      = var.OTC_SDK_PROJECTNAME
     roles = [
       #"FunctionGraph FullAccess"
-      opentelekomcloud_identity_role_v3.fg-role.display_name
+      opentelekomcloud_identity_role_v3.fg_role.display_name
     ]
   }
 

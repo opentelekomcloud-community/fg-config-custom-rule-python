@@ -6,6 +6,8 @@ Samples
     :hidden:
 
     ECS stopped <ecs-stopped/_index.rst>
+    ECS expression <ecs-expression/_index.rst>
+    
 
 
 .. _prerequisites:

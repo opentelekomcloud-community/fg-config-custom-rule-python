@@ -27,7 +27,7 @@ variable "tag_app_group" {
   default = "set in variables.tfvars"
 }
 
-variable "API_GATEWAY_INSTANCE_ID" {
+variable "ecs_instance_id" {
   type    = string
-  default = "your_api_gateway_instance_id"
+  default = "set in variables.tfvars"
 }

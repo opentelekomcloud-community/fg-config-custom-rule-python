@@ -2,10 +2,6 @@
 
 Sample on how to use FuntionGraph as custom rule for Config - Resource Compliance using Python.
 
-> [!WARNING]
-> Work in progress...
->
-
 ## Documentation
 
 For documentation see: [fg-config-custom-rule-python](https://opentelekomcloud-community.github.io/fg-config-custom-rule-python/)
