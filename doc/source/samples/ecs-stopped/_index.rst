@@ -136,7 +136,7 @@ To deploy using Terraform run:
 
 .. code-block:: bash
 
-    make tf_deploy
+    make tf_apply
 
 To destroy the deployed resources using Terraform run:
 

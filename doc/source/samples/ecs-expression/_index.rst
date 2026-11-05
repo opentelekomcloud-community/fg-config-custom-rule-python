@@ -91,8 +91,7 @@ Sample Makefile:
 
 You might want to adjust the following variables to your need:
 
-.. code-block:: 
-    :language: make
+.. code-block:: make
 
     # Terraform backend configuration
     BACKEND_CONFIG_BUCKET := "doc-samples-tf-backend"
